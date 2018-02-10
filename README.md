@@ -8,7 +8,6 @@
 |---|---|---|
 |name|string|null: false, index: true, unique: true|
 |email|string|null: false, unique :true, default: “”|
-|passward|string|null: false, default: “”|
 
 ### Association
 - has_many :group_users
