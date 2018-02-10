@@ -12,7 +12,7 @@
 
 ### Association
 - has_many :group_users
-- has_many :groups, through :members
+- has_many :groups, through :group_users
 - has_many :messages
 
 - - -
@@ -25,7 +25,7 @@
 
 ### Association
 - has_many :group_users
-- has_many :users, thorough: members
+- has_many :users, thorough: group_users
 - has_many :messages
 
 - - -
@@ -47,7 +47,7 @@
 
 |Column|Type|Options|
 |---|---|---|
-|content|text|/|
+|content|string|/|
 |image|string|/|
 |group_id|integer|null: false, foreign_key: true, index: true|
 |user_id|integer|null: false, foreign_key: true, index: true|
