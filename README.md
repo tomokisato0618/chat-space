@@ -13,6 +13,7 @@
 ### Association
 - has_many :group_users
 - has_many :groups, through :members
+- has_many :messages
 
 - - -
 
@@ -25,6 +26,7 @@
 ### Association
 - has_many :group_users
 - has_many :users, thorough: members
+- has_many :messages
 
 - - -
 
