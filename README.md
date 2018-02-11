@@ -10,8 +10,8 @@
 |email|string|null: false, unique :true, default: “”|
 
 ### Association
-- has_many :group_users
-- has_many :groups, through :group_users
+- has_many :groups_users
+- has_many :groups, through :groups_users
 - has_many :messages
 
 - - -
@@ -23,18 +23,18 @@
 |name|string|null: false, unique: true|
 
 ### Association
-- has_many :group_users
-- has_many :users, thorough: group_users
+- has_many :groups_users
+- has_many :users, thorough: groups_users
 - has_many :messages
 
 - - -
 
-## group_users Table
+## groups_users Table
 
 |Column|Type|Options|
 |---|---|---|
-|group_id|references|foreign_key: true, index: true|
-|user_id|references|foreign_key: true, index: true|
+|group_id|references|null: false, foreign_key: true, index: true|
+|user_id|references|null: false, foreign_key: true, index: true|
 
 ### Association
 - belongs_to :user
