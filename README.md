@@ -48,8 +48,8 @@
 |---|---|---|
 |content|string|/|
 |image|string|/|
-|group_id|integer|null: false, foreign_key: true, index: true|
-|user_id|integer|null: false, foreign_key: true, index: true|
+|group_id|integer|null: false, foreign_key: true|
+|user_id|integer|null: false, foreign_key: true|
 
 ### Association
 - belongs_to :user
