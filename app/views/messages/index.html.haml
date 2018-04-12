@@ -1,2 +1,5 @@
-%h1 Messages#index
-%p Find me in app/views/messages/index.html.haml
+.wrapper
+  .sidebar
+    -# localsのパラメータが合ってるかわからん(@groups要る?)
+    = render partial: 'sidebar', locals: { user: @user }
+
