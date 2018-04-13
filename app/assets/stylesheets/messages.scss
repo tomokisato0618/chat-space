@@ -9,6 +9,105 @@ html, body {
   height: 100%;
 }
 
+// message-contents
 .message-contents {
+  width: calc(100% - 300px);
   float: left;
+  &__header {
+    height: $messageHeaderHeight;
+    border-bottom: 1px solid #eeeeee;
+    padding: 0 $messageContentsPadding;
+    margin-bottom: 46px;
+    position: relative;
+    &__group-info {
+      float: left;
+      &__group-name {
+        padding-top: 35px;
+        padding-bottom: 15px;
+        font-size: 20px;
+        color: gray;
+      }
+      &__group-member {
+        font-size: 12px;
+        color: $thinGray;
+      }
+    }
+    &__edit-button {
+      height: 40px;
+      padding: 0 20px;
+      border: 2px $lightBlue solid;
+      line-height: 40px;
+      position: absolute;
+      right: 40px;
+      top: 28px;
+      color: $lightBlue;
+    }
+  }
+  &__body {
+    position: relative;
+    padding: 0 $messageContentsPadding;
+    &__user-name {
+      display: inline-block;
+      margin-right: 10px;
+      color: $messageBodyTextColor;
+      font-size: 16px;
+      font-weight: bold;
+    }
+    &__created-at {
+      display: inline;
+      font-size: 12px;
+      color: $gray;
+    }
+    &__text {
+      margin-top: 10px;
+      padding-bottom: 40px;
+      color: $messageBodyTextColor;
+    }
+  }
+  &__footer {
+    position: fixed;
+    bottom: 0px;
+    height: $messageFormHeight;
+    padding: 20px $messageContentsPadding;
+    background-color: #ddd;
+    // 他にwidthの良い設定ない?
+    width: calc(100% - 300px);
+    .message-form {
+      margin-right: 80px;
+      position: relative;
+      &__text {
+        height: $messageFormHeight;
+        padding-left: 10px;
+        margin-right: 0px;
+        width: calc(100% - 180px);
+        border: none;
+        float: left;
+        font-size: 16px;
+        color: $messageBodyTextColor;
+      }
+      &__file {
+        float: left;
+        background-color: $white;
+        padding-left: 10px;
+        padding-right: 25px;
+        &__icon {
+          i {
+            background-color: $white;
+            line-height: 50px;
+          }
+        }
+        &__send-file {
+          display: none;
+        }
+      }
+      &__submit {
+        height: $messageFormHeight;
+        width: 100px;
+        background-color: $lightBlue;
+        color: $white;
+        position: absolute;
+        right: 0px;
+      }
+    }
+  }
 }
