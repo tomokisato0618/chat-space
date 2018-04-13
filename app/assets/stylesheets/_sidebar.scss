@@ -1,0 +1,38 @@
+// sidebar
+.sidebar {
+  width: $sidebarWidth;
+  height: 100%;
+  float: left;
+  background-color: $sidebarBackColor;
+  color: $white;
+  .user-info {
+    height: $userInfoHeight;
+    padding: 0 $sidebarPadding;
+    background-color: $userInfoBackColor;
+    &__user-name {
+      float: left;
+      font-size: 16px;
+      line-height: $userInfoHeight;
+    }
+    &__create-group-button {
+      float: right;
+      line-height: $userInfoHeight;
+      padding: 5px;
+    }
+    &__edit-user-button {
+      float: right;
+      line-height: $userInfoHeight;
+      padding: 5px;
+    }
+  }
+  .group-index-box {
+    padding: $groupIndexBoxPadding $sidebarPadding;
+    &__group-name {
+      font-size: 15px;
+      margin-bottom: 5px;
+    }
+    &__group-message {
+      font-size: 11px;
+    }
+  }
+}
