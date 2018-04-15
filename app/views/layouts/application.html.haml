@@ -6,8 +6,7 @@
     = csrf_meta_tags
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
-  -# - if notice 便宜的にnoticeへ代入
-  %p#notice
-    = notice = "チャットグループが作成されました。"
   %body
+    - if flash[:notice] || flash[:alert]
+      = render 'layouts/notifications'
     = yield
