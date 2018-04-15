@@ -1,9 +1,8 @@
 .user-info
   .user-info__user-name
-    UserName
+    = current_user.name
   .user-info__edit-user-button
-    -# リンク先 edit_user_path(@user)で合ってる?
-    = link_to "#" do
+    = link_to edit_user_path(current_user) do
       = fa_icon("cog lg")
   .user-info__create-group-button
     -# リンク先 new_group_path で合ってる?
