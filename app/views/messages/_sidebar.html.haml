@@ -5,8 +5,7 @@
     = link_to edit_user_path(current_user) do
       = fa_icon("cog lg")
   .user-info__create-group-button
-    -# リンク先 new_group_path で合ってる?
-    = link_to "#" do
+    = link_to new_group_path do
       = fa_icon("edit lg")
 -# @user.groups.each do |group| class""が回数分変わる中でどうスタイル適用する?
 -# link_to ? do(group_path)
