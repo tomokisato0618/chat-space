@@ -1,7 +1,7 @@
 .wrapper
   .sidebar
     -# localsのパラメータが合ってるかわからん(@groups要る?)
-    = render partial: 'sidebar', locals: { user: @user }
+    = render partial: 'shared/sidebar', locals: { user: @user }
   .message-contents
     .message-contents__header
       .message-contents__header__group-info

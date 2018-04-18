@@ -8,5 +8,5 @@
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   %body
     - if flash[:notice] || flash[:alert]
-      = render 'layouts/notifications'
+      = render 'shared/notifications'
     = yield
