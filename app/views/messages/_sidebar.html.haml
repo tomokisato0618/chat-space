@@ -7,23 +7,15 @@
   .user-info__create-group-button
     = link_to new_group_path do
       = fa_icon("edit lg")
--# @user.groups.each do |group| class""が回数分変わる中でどうスタイル適用する?
--# link_to ? do(group_path)
-.group-index-box
-  .group-index-box__group-name
-    グループ1
-  .group-index-box__group-message
-    メッセージ1
-.group-index-box
-  .group-index-box__group-name
-    グループ2
-  .group-index-box__group-message
-    メッセージ2
-.group-index-box
-  .group-index-box__group-name
-    グループ3
-  .group-index-box__group-message
-    メッセージ3
+
+.group-index
+  - current_user.groups.each do |group|
+    .group-index__box
+      = link_to group_messages_path(group) do
+        .group-index__box__group-name
+          = group.name
+        .group-index__box__group-message
+          メッセージはまだありません。
 
 
 / <% if user_signed_in? && current_user.id == tweet.user_id %>
