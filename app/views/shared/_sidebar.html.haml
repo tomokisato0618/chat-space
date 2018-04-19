@@ -8,14 +8,14 @@
     = link_to new_group_path do
       = fa_icon("edit lg")
 
-.group-index
-  - current_user.groups.each do |group|
+- current_user.groups.each do |group|
+  .group-index
     .group-index__box
       = link_to group_messages_path(group) do
         .group-index__box__group-name
           = group.name
         .group-index__box__group-message
-          メッセージはまだありません。
+          = group.show_last_message
 
 
 / <% if user_signed_in? && current_user.id == tweet.user_id %>

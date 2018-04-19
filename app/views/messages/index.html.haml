@@ -1,36 +1,26 @@
 .wrapper
   .sidebar
-    -# localsのパラメータが合ってるかわからん(@groups要る?)
-    = render partial: 'shared/sidebar', locals: { user: @user }
+    = render 'shared/sidebar'
   .message-contents
     .message-contents__header
       .message-contents__header__group-info
         .message-contents__header__group-info__group-name
-          = link_to 'GroupName', '/groups/1/edit'
+          = @group.name
         .message-contents__header__group-info__group-member
-          groupmenber
+          Menber:
+          - @group.users.each do |user|
+            = user.name
       / リンク先 edit_group(@group)?
       .message-contents__header__edit-button
         Edit
     .message-contents__body
-      .message-contents__body__user-name
-        username1
-      .message-contents__body__created-at
-        2018/0101 10:00
-      .message-contents__body__text
-        text1
-      .message-contents__body__user-name
-        username2
-      .message-contents__body__created-at
-        2018/0101 12:00
-      .message-contents__body__text
-        text2
+      = render partial: 'message', collection: @messages
     .message-contents__footer
-      %form.message-form{action: '#', enctype: "multipart/formdata"}
-        %input.message-form__text{type: "text", placeholder: "type a text"}
+      = form_for [@group, @message], html: { class: 'message-form' } do |f|
+        = f.text_field :content, class: 'message-form__text', placeholder: 'type a text'
         .message-form__file
-          %label.message-form__file__icon{for: "send-file"}
-            = fa_icon("image lg")
-          %input#send-file.message-form__file__send-file{type: "file"}
-        %input.message-form__submit{type: "submit", value: "Send"}
+          = f.label :image, class: 'message-form__file__icon' do
+            = fa_icon 'image lg'
+            = f.file_field :image, class: 'message-form__file__send-file'
+        = f.submit 'Send', class: 'message-form__submit'
 
