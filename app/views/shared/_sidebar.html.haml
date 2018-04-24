@@ -15,7 +15,7 @@
         .group-index__box__group-name
           = group.name
         .group-index__box__group-message
-          メッセージはまだありません。
+          = group.show_last_message
 
 
 / <% if user_signed_in? && current_user.id == tweet.user_id %>
