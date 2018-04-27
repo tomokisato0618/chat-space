@@ -18,6 +18,3 @@
 
 # Ignore Public Images
 /public/uploads/
-
-# Ignore Images for Test
-/public/images/
