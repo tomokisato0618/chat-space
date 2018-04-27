@@ -15,12 +15,12 @@
         Edit
     .message-contents__body
       = render partial: 'message', collection: @messages
-    .message-contents__footer
-      = form_for [@group, @message], html: { class: 'message-form' } do |f|
-        = f.text_field :content, class: 'message-form__text', placeholder: 'type a text'
-        .message-form__file
-          = f.label :image, class: 'message-form__file__icon' do
-            = fa_icon 'image lg'
-            = f.file_field :image, class: 'message-form__file__send-file'
-        = f.submit 'Send', class: 'message-form__submit'
+  .message-contents__footer
+    = form_for [@group, @message], html: { class: 'message-form' } do |f|
+      = f.text_field :content, class: 'message-form__text', placeholder: 'type a text'
+      .message-form__file
+        = f.label :image, class: 'message-form__file__icon' do
+          = fa_icon 'image lg'
+          = f.file_field :image, class: 'message-form__file__send-file'
+      = f.submit 'Send', class: 'message-form__submit'
 

@@ -1,12 +1,16 @@
 // sidebar
 .sidebar {
   width: $sidebarWidth;
-  height: 100%;
+  // height: 100%;
   float: left;
-  background-color: $sidebarBackColor;
   color: $white;
+  background-color: $sidebarBackColor;
+  padding-bottom: 32768px;
+  margin-bottom: -32768px;
+  overflow: hidden;
   .user-info {
     height: $userInfoHeight;
+    width: $sidebarWidth - 40px;
     padding: 0 $sidebarPadding;
     background-color: $userInfoBackColor;
     &__user-name {
@@ -26,12 +30,11 @@
     }
   }
   .group-index {
-    height: 100%;
     &__box {
       padding: $groupIndexBoxPadding $sidebarPadding;
-      color: $white;
       a {
         text-decoration: none;
+        color: $white;
         .group-index__box__group-name {
           font-size: 15px;
           margin-bottom: 5px;
