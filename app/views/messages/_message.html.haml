@@ -1,8 +1,9 @@
-.message-contents__body__user-name
-  = message.user.name
-.message-contents__body__created-at
-  = format_posted_time(message.created_at)
-.message-contents__body__text
-  - if message.content.present?
-    = message.content
-  = image_tag message.image.url, class: 'message-contents__body__image' if message.image.present?
+.message-contents__body__message-box
+  .message-contents__body__message-box__user-name
+    = message.user.name
+  .message-contents__body__message-box__created-at
+    = format_posted_time(message.created_at)
+  .message-contents__body__message-box__text
+    - if message.content.present?
+      = message.content
+    = image_tag message.image.url, class: 'message-contents__body__image' if message.image.present?

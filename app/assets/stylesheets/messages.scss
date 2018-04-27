@@ -46,22 +46,24 @@ html, body {
   &__body {
     position: relative;
     padding: 0 $messageContentsPadding;
-    &__user-name {
-      display: inline-block;
-      margin-right: 10px;
-      color: $messageBodyTextColor;
-      font-size: 16px;
-      font-weight: bold;
-    }
-    &__created-at {
-      display: inline;
-      font-size: 12px;
-      color: $gray;
-    }
-    &__text {
-      margin-top: 10px;
-      padding-bottom: 40px;
-      color: $messageBodyTextColor;
+    &__message-box {
+      &__user-name {
+        display: inline-block;
+        margin-right: 10px;
+        color: $messageBodyTextColor;
+        font-size: 16px;
+        font-weight: bold;
+      }
+      &__created-at {
+        display: inline;
+        font-size: 12px;
+        color: $gray;
+      }
+      &__text {
+        margin-top: 10px;
+        padding-bottom: 40px;
+        color: $messageBodyTextColor;
+      }
     }
   }
 }
