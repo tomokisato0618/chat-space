@@ -46,6 +46,7 @@ html, body {
   &__body {
     position: relative;
     padding: 0 $messageContentsPadding;
+    padding-bottom: 90px;
     &__message-box {
       &__user-name {
         display: inline-block;
