@@ -1,0 +1,125 @@
+$(function() {
+
+  function buildMessageHTML(message) {
+    var content = `<div class="message-contents__body__message-box__text">
+                     ${ message.content }
+                   </div>`
+    var img = `<div class="message-contents__body__image">
+                 <img src="${ message.image }" class="message-contents__body__image-content">
+               </div>`;
+    var html;
+
+    var content = `<div class="message-contents__body__message-box__text">
+                     ${ message.content }
+                   </div>`
+    var img = `<div class="message-contents__body__image">
+                 <img src="${ message.image }" class="message-contents__body__image-content">
+               </div>`;
+    var html;
+
+    // (1) メッセージが存在 & 画像が存在
+    // (2) メッセージが存在 & 画像が存在しない
+    // (3) メッセージが存在しない & 画像が存在する
+    // (※) メッセージが存在しない & 画像が存在しない => そもそもモデルのバリデーションを通らない
+
+    if (message.content && message.image) {
+      html = `<div class="message-contents__body__message-box">
+                <div class="message-contents__body__message-box__user-name">
+                  ${ message.user_name }
+                </div>
+                <div class="message-contents__body__message-box__created-at">
+                  ${ message.created_at }
+                </div>
+                ${ content }
+                ${ img }
+              </div>`;
+      return html;
+    } else if (!message.image) {
+      html = `<div class="message-contents__body__message-box">
+                <div class="message-contents__body__message-box__user-name">
+                  ${ message.user_name }
+                </div>
+                <div class="message-contents__body__message-box__created-at">
+                  ${ message.created_at }
+                </div>
+                ${ content }
+              </div>`;
+      return html;
+    } else {
+      html = `<div class="message-contents__body__message-box">
+                <div class="message-contents__body__message-box__user-name">
+                  ${ message.user_name }
+                </div>
+                <div class="message-contents__body__message-box__created-at">
+                  ${ message.created_at }
+                </div>
+                ${ img }
+              </div>`;
+      return html;
+    }
+  }
+    if (message.content && message.image) {
+      html = `<div class="message-contents__body__message-box">
+                <div class="message-contents__body__message-box__user-name">
+                  ${ message.user_name }
+                </div>
+                <div class="message-contents__body__message-box__created-at">
+                  ${ message.created_at }
+                </div>
+                ${ content }
+                ${ img }
+              </div>`;
+      return html;
+    } else if (!message.image) {
+      html = `<div class="message-contents__body__message-box">
+                <div class="message-contents__body__message-box__user-name">
+                  ${ message.user_name }
+                </div>
+                <div class="message-contents__body__message-box__created-at">
+                  ${ message.created_at }
+                </div>
+                ${ content }
+              </div>`;
+      return html;
+    } else {
+      html = `<div class="message-contents__body__message-box">
+                <div class="message-contents__body__message-box__user-name">
+                  ${ message.user_name }
+                </div>
+                <div class="message-contents__body__message-box__created-at">
+                  ${ message.created_at }
+                </div>
+                ${ img }
+              </div>`;
+      return html;
+    }
+  }
+
+  $('.message-form').on('submit', function(e) {
+    e.preventDefault();
+    var formData = new FormData(this);
+    var url = $(this).attr('action');
+
+    $.ajax({
+      url: url,
+      type: "POST",
+      data: formData,
+      dataType: "json",
+      processData: false,
+      contentType: false
+    })
+    .done(function(data) {
+      var html = buildMessageHTML(data);
+      $('.message-contents__body').append(html);
+      var latest_message = $('.message-contents__body__message-box:last');
+      $('html,body').animate({scrollTop: latest_message.offset().top}, 'normal');
+      $('.message-form')[0].reset();
+      $('.message-form__submit').prop('disabled', false);
+    })
+    .fail(function() {
+      alert('失敗しました');
+      $('.message-form')[0].reset();
+      $('.message-form__submit').prop('disabled', false);
+    });
+  });
+});

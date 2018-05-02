@@ -13,7 +13,7 @@ html, body {
 // message-contents
 .message-contents {
   width: calc(100% - 300px);
-  float: left;
+  float: right;
   &__header {
     height: $messageHeaderHeight;
     border-bottom: 1px solid #eeeeee;
@@ -43,9 +43,16 @@ html, body {
       color: $lightBlue;
     }
   }
-  &__body {
-    position: relative;
-    padding: 0 $messageContentsPadding;
+}
+
+.message-contents__body {
+  position: relative;
+  clear: both;
+  margin-left: 300px;
+  margin-top: $messageHeaderHeight;
+  padding: 0 $messageContentsPadding;
+  padding-bottom: 90px;
+  &__message-box {
     &__user-name {
       display: inline-block;
       margin-right: 10px;
