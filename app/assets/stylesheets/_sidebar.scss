@@ -7,11 +7,15 @@
   background-color: $sidebarBackColor;
   padding-bottom: 32768px;
   margin-bottom: -32768px;
+  position: fixed;
+  left: 0px;
   overflow: hidden;
   .user-info {
     height: $userInfoHeight;
     width: $sidebarWidth - 40px;
     padding: 0 $sidebarPadding;
+    position: absolute;
+    top: 0px;
     background-color: $userInfoBackColor;
     &__user-name {
       float: left;
@@ -30,6 +34,8 @@
     }
   }
   .group-index {
+    margin-top: $userInfoHeight;
+    overflow: scroll;
     &__box {
       padding: $groupIndexBoxPadding $sidebarPadding;
       a {
