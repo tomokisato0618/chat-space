@@ -1,55 +1,26 @@
 $(function() {
 
   function buildMessageHTML(message) {
-    var content = `<div class="message-contents__body__message-box__text">
-                     ${ message.content }
-                   </div>`
-    var img = `<div class="message-contents__body__image">
-                 <img src="${ message.image }" class="message-contents__body__image-content">
-               </div>`;
-    var html;
-
-    // (1) メッセージが存在 & 画像が存在
-    // (2) メッセージが存在 & 画像が存在しない
-    // (3) メッセージが存在しない & 画像が存在する
-    // (※) メッセージが存在しない & 画像が存在しない => そもそもモデルのバリデーションを通らない
-
-    if (message.content && message.image) {
-      html = `<div class="message-contents__body__message-box">
-                <div class="message-contents__body__message-box__user-name">
-                  ${ message.user_name }
-                </div>
-                <div class="message-contents__body__message-box__created-at">
-                  ${ message.created_at }
-                </div>
-                ${ content }
-                ${ img }
-              </div>`;
-      return html;
-    } else if (!message.image) {
-      html = `<div class="message-contents__body__message-box">
-                <div class="message-contents__body__message-box__user-name">
-                  ${ message.user_name }
-                </div>
-                <div class="message-contents__body__message-box__created-at">
-                  ${ message.created_at }
-                </div>
-                ${ content }
-              </div>`;
-      return html;
-    } else {
-      html = `<div class="message-contents__body__message-box">
-                <div class="message-contents__body__message-box__user-name">
-                  ${ message.user_name }
-                </div>
-                <div class="message-contents__body__message-box__created-at">
-                  ${ message.created_at }
-                </div>
-                ${ img }
-              </div>`;
-      return html;
+    var img = "";
+    if (message.image) {
+      img = `<div class="message-contents__body__image">
+              <img src="${ message.image }" class="message-contents__body__image-content">
+             </div>`;
     }
-  }
+    var html = `<div class="message-contents__body__message-box">
+                  <div class="message-contents__body__message-box__user-name">
+                    ${ message.user_name }
+                  </div>
+                  <div class="message-contents__body__message-box__created-at">
+                    ${ message.created_at }
+                  </div>
+                  <div class="message-contents__body__message-box__text">
+                    ${ message.content }
+                  </div>
+                  ${ img }
+                </div>`
+  return html;
+}
 
   $('.message-form').on('submit', function(e) {
     e.preventDefault();
